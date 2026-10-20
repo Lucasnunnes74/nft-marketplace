@@ -1,0 +1,74 @@
+[
+  {
+    "url": "http://localhost:4173/",
+    "isRepresentativeRun": false,
+    "htmlPath": "C:\\Users\\Dell\\OneDrive\\Documents\\projetos\\react\\nft-marketplace\\docs\\lighthouse\\mobile\\localhost--2026_10_20_20_02_33.report.html",
+    "jsonPath": "C:\\Users\\Dell\\OneDrive\\Documents\\projetos\\react\\nft-marketplace\\docs\\lighthouse\\mobile\\localhost--2026_10_20_20_02_33.report.json",
+    "summary": {
+      "performance": 0.54,
+      "accessibility": 0.96,
+      "best-practices": 1,
+      "seo": 0.92
+    }
+  },
+  {
+    "url": "http://localhost:4173/",
+    "isRepresentativeRun": false,
+    "htmlPath": "C:\\Users\\Dell\\OneDrive\\Documents\\projetos\\react\\nft-marketplace\\docs\\lighthouse\\mobile\\localhost--2026_10_20_20_03_23.report.html",
+    "jsonPath": "C:\\Users\\Dell\\OneDrive\\Documents\\projetos\\react\\nft-marketplace\\docs\\lighthouse\\mobile\\localhost--2026_10_20_20_03_23.report.json",
+    "summary": {
+      "performance": 0.53,
+      "accessibility": 0.96,
+      "best-practices": 1,
+      "seo": 0.92
+    }
+  },
+  {
+    "url": "http://localhost:4173/nft/nft-002",
+    "isRepresentativeRun": false,
+    "htmlPath": "C:\\Users\\Dell\\OneDrive\\Documents\\projetos\\react\\nft-marketplace\\docs\\lighthouse\\mobile\\localhost-nft_nft_002-2026_10_20_20_03_47.report.html",
+    "jsonPath": "C:\\Users\\Dell\\OneDrive\\Documents\\projetos\\react\\nft-marketplace\\docs\\lighthouse\\mobile\\localhost-nft_nft_002-2026_10_20_20_03_47.report.json",
+    "summary": {
+      "performance": 0.51,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 0.92
+    }
+  },
+  {
+    "url": "http://localhost:4173/nft/nft-002",
+    "isRepresentativeRun": false,
+    "htmlPath": "C:\\Users\\Dell\\OneDrive\\Documents\\projetos\\react\\nft-marketplace\\docs\\lighthouse\\mobile\\localhost-nft_nft_002-2026_10_20_20_04_31.report.html",
+    "jsonPath": "C:\\Users\\Dell\\OneDrive\\Documents\\projetos\\react\\nft-marketplace\\docs\\lighthouse\\mobile\\localhost-nft_nft_002-2026_10_20_20_04_31.report.json",
+    "summary": {
+      "performance": 0.55,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 0.92
+    }
+  },
+  {
+    "url": "http://localhost:4173/",
+    "isRepresentativeRun": true,
+    "htmlPath": "C:\\Users\\Dell\\OneDrive\\Documents\\projetos\\react\\nft-marketplace\\docs\\lighthouse\\mobile\\localhost--2026_10_20_20_03_00.report.html",
+    "jsonPath": "C:\\Users\\Dell\\OneDrive\\Documents\\projetos\\react\\nft-marketplace\\docs\\lighthouse\\mobile\\localhost--2026_10_20_20_03_00.report.json",
+    "summary": {
+      "performance": 0.52,
+      "accessibility": 0.96,
+      "best-practices": 1,
+      "seo": 0.92
+    }
+  },
+  {
+    "url": "http://localhost:4173/nft/nft-002",
+    "isRepresentativeRun": true,
+    "htmlPath": "C:\\Users\\Dell\\OneDrive\\Documents\\projetos\\react\\nft-marketplace\\docs\\lighthouse\\mobile\\localhost-nft_nft_002-2026_10_20_20_04_07.report.html",
+    "jsonPath": "C:\\Users\\Dell\\OneDrive\\Documents\\projetos\\react\\nft-marketplace\\docs\\lighthouse\\mobile\\localhost-nft_nft_002-2026_10_20_20_04_07.report.json",
+    "summary": {
+      "performance": 0.51,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 0.92
+    }
+  }
+]
