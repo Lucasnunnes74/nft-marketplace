@@ -17,8 +17,9 @@ Resultados reais da última execução (2026-10-20). Para reproduzir: `npm run t
 
 ## Playwright (E2E + regressão visual)
 
-- **104 testes passando, 10 ignorados, 0 falhas** (`npx playwright test --workers=1`, 20 min).
-- Os 10 ignorados são intencionais: testes de redimensionamento e de teclado que só rodam no projeto desktop.
+- **Suíte completa: 104 testes passando, 10 ignorados, 0 falhas** (`npx playwright test --workers=1`, 20 min).
+- **Depois disso** foram adicionados testes de paginação, "Ler mais", cursor e sobreposição dos cards de destaque em 6 larguras. Os specs afetados (`catalog`, `responsive`, `a11y` e `visual`) foram reexecutados: **60 passando, 20 ignorados, 0 falhas**.
+- Os ignorados são intencionais: testes de redimensionamento e de teclado que só rodam no projeto desktop.
 - Com mais de um worker, o servidor de desenvolvimento do Vite fica lento nesta máquina e aparecem timeouts de `page.goto` que não são falhas funcionais; por isso a execução de referência usa `--workers=1`.
 - Relatório HTML em `playwright-report/`; traces só são gravados nas falhas (`trace: 'retain-on-failure'`).
 - Regressão visual: baselines de início, detalhe, carrinho, pagamento e login, em desktop e mobile, em `tests/e2e/visual.spec.ts-snapshots/` (tolerância de 2% de pixels).

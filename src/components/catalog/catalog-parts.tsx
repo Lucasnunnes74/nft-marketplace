@@ -125,6 +125,8 @@ export function Pagination({ page, totalPages }: { page: number; totalPages: num
       {page > 1 ? (
         <Link
           to="/"
+          hash="catalogo"
+          resetScroll={false}
           search={(prev: HomeSearch) => ({ ...prev, page: page - 1 <= 1 ? undefined : page - 1 })}
           aria-label="Página anterior"
           className={cn(box, 'border border-border text-foreground hover:border-primary')}
@@ -141,6 +143,8 @@ export function Pagination({ page, totalPages }: { page: number; totalPages: num
           <Link
             key={p}
             to="/"
+            hash="catalogo"
+            resetScroll={false}
             search={(prev: HomeSearch) => ({ ...prev, page: p === 1 ? undefined : p })}
             aria-label={`Página ${p}`}
             aria-current={p === page ? 'page' : undefined}
@@ -156,6 +160,8 @@ export function Pagination({ page, totalPages }: { page: number; totalPages: num
       {page < totalPages ? (
         <Link
           to="/"
+          hash="catalogo"
+          resetScroll={false}
           search={(prev: HomeSearch) => ({ ...prev, page: page + 1 })}
           aria-label="Próxima página"
           className={cn(box, 'border border-border text-foreground hover:border-primary')}

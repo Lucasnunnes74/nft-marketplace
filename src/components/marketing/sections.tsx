@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { FigmaIcon } from '@/components/ui/figma-icon'
+import { toast } from '@/stores/toasts'
 
 /** Hero da página inicial (desktop 1200×450 / mobile 366×190 no layout). */
 export function Hero() {
@@ -98,7 +99,8 @@ const promos = [
 
 export function Promos() {
   return (
-    <section id="destaques" aria-label="Destaques" className="grid scroll-mt-6 gap-7 md:grid-cols-2">
+    // O miolo do card é fixo (arte de 292px + texto de 263px): só cabe em duas colunas a partir de 1280px.
+    <section id="destaques" aria-label="Destaques" className="grid scroll-mt-6 gap-7 xl:grid-cols-2">
       {promos.map((p) => (
         <article key={p.title[0]} className="relative h-[250px] overflow-hidden rounded-lg bg-card">
           <img
@@ -161,10 +163,21 @@ export function Blog() {
               </p>
               <h3 className="text-base font-bold leading-normal text-text-primary">{p.title}</h3>
               <p className="text-xs font-medium leading-4 text-muted-foreground">{p.text}</p>
-              <p className="flex gap-1 text-xs text-accent" aria-hidden>
-                <span className="font-bold leading-[14px]">Ler mais</span>
-                <span>→</span>
-              </p>
+              <button
+                type="button"
+                onClick={() =>
+                  toast({
+                    title: 'Artigo indisponível na demonstração',
+                    description: 'O conteúdo editorial está fora do escopo desta simulação.',
+                  })
+                }
+                className="flex w-fit gap-1 text-xs text-accent hover:underline"
+              >
+                <span className="font-bold leading-[14px]">
+                  Ler mais<span className="sr-only">: {p.title}</span>
+                </span>
+                <span aria-hidden>→</span>
+              </button>
             </article>
           </li>
         ))}

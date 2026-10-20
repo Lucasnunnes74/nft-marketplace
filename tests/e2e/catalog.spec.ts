@@ -46,6 +46,23 @@ test.describe('catálogo', () => {
     await expect(page).not.toHaveURL(/page=/)
   })
 
+  test('paginação mantém a rolagem no catálogo em vez de voltar ao topo da página', async ({ page }) => {
+    const next = page.getByRole('link', { name: 'Próxima página' })
+    await next.scrollIntoViewIfNeeded()
+    await next.click()
+    await expect(page).toHaveURL(/page=2/)
+    await expect(page.locator('#catalogo')).toBeInViewport()
+    expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(150)
+  })
+
+  test('"Ler mais" do blog responde com aviso e controles ativos usam cursor de mão', async ({ page }) => {
+    const readMore = page.getByRole('button', { name: /^Ler mais/ }).first()
+    await readMore.scrollIntoViewIfNeeded()
+    expect(await readMore.evaluate((el) => getComputedStyle(el).cursor)).toBe('pointer')
+    await readMore.click()
+    await expect(page.getByText('Artigo indisponível na demonstração')).toBeVisible()
+  })
+
   test('sem resultados mostra estado vazio com ação para limpar', async ({ page }) => {
     await search(page, 'zzzz-inexistente')
     await expect(page.getByRole('heading', { name: 'Nenhum NFT encontrado' })).toBeVisible()

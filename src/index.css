@@ -92,6 +92,19 @@
   html {
     color-scheme: dark;
   }
+  /* O preflight do Tailwind v4 deixa os botões com o cursor padrão: controles ativos usam a mãozinha. */
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']),
+  summary,
+  select:not(:disabled),
+  label[for],
+  input:is([type='checkbox'], [type='radio'], [type='file'], [type='range']):not(:disabled) {
+    cursor: pointer;
+  }
+  button:disabled,
+  [aria-disabled='true'] {
+    cursor: not-allowed;
+  }
   body {
     @apply bg-background text-foreground font-sans antialiased;
     min-height: 100dvh;
