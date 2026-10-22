@@ -58,7 +58,7 @@ export function AuthShell({
         <Promos />
       </div>
       <Dialog open onOpenChange={(open) => !open && close()}>
-        <DialogContent className="top-[max(1rem,min(160px,calc(50dvh-330px)))] max-h-[calc(100dvh-2rem)] max-w-[500px] translate-y-0 gap-0 overflow-y-auto rounded-none border-0 bg-card p-0 pb-[10px]">
+        <DialogContent className="top-[max(1rem,min(160px,calc(50dvh-330px)))] max-h-[calc(100dvh-2rem)] max-w-[500px] translate-y-0 gap-0 overflow-y-auto rounded-none border-0 bg-card p-0">
           <div className="flex flex-col items-center gap-10 px-12 pt-12">
             <nav aria-label="Acesso" className="flex items-stretch gap-2 text-xl font-medium leading-4">
               <AuthTab to="/login" active={mode === 'login'} redirect={redirect}>
@@ -75,7 +75,8 @@ export function AuthShell({
           {children}
           <SocialBlock />
           <div className="flex justify-center px-20 pb-8 pt-6 text-[13px] text-muted-foreground">{footer}</div>
-          <span aria-hidden className="absolute inset-x-0 bottom-0 h-2.5 bg-primary" />
+          {/* Faixa de base no fluxo do conteúdo: absoluta, ela ficava no meio do formulário quando o painel rolava. */}
+          <span aria-hidden data-testid="auth-bottom-bar" className="block h-2.5 bg-primary" />
         </DialogContent>
       </Dialog>
     </>

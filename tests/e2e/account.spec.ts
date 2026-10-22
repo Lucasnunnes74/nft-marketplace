@@ -44,6 +44,19 @@ test.describe('cadastro e sessão', () => {
     await expect(page.locator('#p-email')).toHaveValue('carla@nft.test')
   })
 
+  test('faixa de base do diálogo acompanha o fim do conteúdo, sem cruzar o formulário', async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name !== 'desktop', 'Diálogo de acesso é o layout desktop.')
+    await page.setViewportSize({ width: 1440, height: 520 }) // janela baixa (ex.: zoom): o painel rola
+    await page.goto('/signup')
+    const dialog = page.getByRole('dialog')
+    await dialog.evaluate((el) => el.scrollTo(0, el.scrollHeight))
+    const strip = (await dialog.getByTestId('auth-bottom-bar').boundingBox())!
+    const submit = (await dialog.getByRole('button', { name: 'Criar conta' }).boundingBox())!
+    const panel = (await dialog.boundingBox())!
+    expect(strip.y).toBeGreaterThanOrEqual(submit.y + submit.height) // abaixo do botão
+    expect(Math.abs(strip.y + strip.height - (panel.y + panel.height))).toBeLessThan(2) // colada na base do painel
+  })
+
   test('login com senha errada mostra erro e permanece na tela', async ({ page }) => {
     await loginAs(page, 'demo@nft.test', 'Errada@123')
     await expect(page).toHaveURL(/\/login/)

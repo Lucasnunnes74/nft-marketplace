@@ -10,8 +10,9 @@ async function bootstrap() {
   const app = import('./App')
   // Mocks (MSW) ficam ativos em dev e no build de demonstração; nada de mock em código de tela.
   if (import.meta.env.VITE_ENABLE_MOCKS === 'true') {
-    const { startMocks } = await import('./mocks/browser')
+    const { startMocks, reloadIfWorkerIsBypassed } = await import('./mocks/browser')
     await startMocks()
+    if (await reloadIfWorkerIsBypassed()) return
   }
   const { default: App } = await app
   createRoot(document.getElementById('root') as HTMLElement).render(

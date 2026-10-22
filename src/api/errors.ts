@@ -49,8 +49,12 @@ export function toApiError(error: unknown): ApiError {
     if (err.response) {
       const parsed = apiErrorBodySchema.safeParse(err.response.data)
       if (parsed.success) return fromBody(err.response.status, parsed.data)
+      // 404/405 sem corpo de erro da API: a chamada não chegou ao backend esperado (ex.: página sem o servidor simulado).
+      const unreachable = err.response.status === 404 || err.response.status === 405
       return new ApiError({
-        message: 'Não foi possível concluir a operação.',
+        message: unreachable
+          ? 'O servidor não respondeu a esta operação. Recarregue a página e tente de novo.'
+          : 'Não foi possível concluir a operação.',
         status: err.response.status,
         code: err.response.status >= 500 ? 'SERVICE_UNAVAILABLE' : 'UNKNOWN',
       })
